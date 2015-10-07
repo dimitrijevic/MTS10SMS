@@ -12,7 +12,9 @@ namespace MTS10SMS
         public App()
         {
             // The root page of your application
-            MainPage = new ContentPage
+            MainPage = new MainPage();
+            /*
+            new ContentPage
             {
                 Content = new StackLayout
                 {
@@ -25,6 +27,7 @@ namespace MTS10SMS
                     }
                 }
             };
+            */
         }
 
         protected override void OnStart()
