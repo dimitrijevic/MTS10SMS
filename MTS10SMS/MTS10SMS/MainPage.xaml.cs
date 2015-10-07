@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace MTS10SMS
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : CarouselPage
     {
         public MainPage()
         {
