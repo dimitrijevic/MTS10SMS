@@ -26,6 +26,18 @@ namespace MTS10SMS.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Acr.Support.Android.Resource.String.ApplicationName = global::MTS10SMS.Droid.Resource.String.ApplicationName;
+			global::Acr.Support.Android.Resource.String.Hello = global::MTS10SMS.Droid.Resource.String.Hello;
+			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.error = global::MTS10SMS.Droid.Resource.Drawable.error;
+			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.info = global::MTS10SMS.Droid.Resource.Drawable.info;
+			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.success = global::MTS10SMS.Droid.Resource.Drawable.success;
+			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.warning = global::MTS10SMS.Droid.Resource.Drawable.warning;
+			global::Toasts.Forms.Plugin.Droid.Resource.Id.desc = global::MTS10SMS.Droid.Resource.Id.desc;
+			global::Toasts.Forms.Plugin.Droid.Resource.Id.image = global::MTS10SMS.Droid.Resource.Id.image;
+			global::Toasts.Forms.Plugin.Droid.Resource.Id.title = global::MTS10SMS.Droid.Resource.Id.title;
+			global::Toasts.Forms.Plugin.Droid.Resource.Layout.crouton = global::MTS10SMS.Droid.Resource.Layout.crouton;
+			global::Toasts.Forms.Plugin.Droid.Resource.String.ApplicationName = global::MTS10SMS.Droid.Resource.String.ApplicationName;
+			global::Toasts.Forms.Plugin.Droid.Resource.String.Hello = global::MTS10SMS.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -45,7 +57,19 @@ namespace MTS10SMS.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int icon = 2130837504;
+			public const int error = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int info = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int success = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int warning = 2130837508;
 			
 			static Drawable()
 			{
@@ -53,6 +77,63 @@ namespace MTS10SMS.Droid
 			}
 			
 			private Drawable()
+			{
+			}
+		}
+		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050002
+			public const int desc = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int image = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int title = 2131034113;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
+		public partial class Layout
+		{
+			
+			// aapt resource value: 0x7f030000
+			public const int crouton = 2130903040;
+			
+			static Layout()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Layout()
+			{
+			}
+		}
+		
+		public partial class String
+		{
+			
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
+			
+			static String()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private String()
 			{
 			}
 		}

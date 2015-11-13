@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  x:Class="MTS10SMS.MainPage">
+  x:Class="MTS10SMS.MainPage" x:Name="SMSTabs">
   <TabbedPage.Children>
     <ContentPage Title="SMS">
       <Grid x:Name="SMSTitlePanel" Padding="12,27,0,18">
@@ -18,9 +18,10 @@
         <!--
         <Label Text="SMS" Grid.Row="0"/>
         <toolkitPrimitives:LoopingSelector x:Name="SelectorFromPrefix" ItemPadding="2,30,3,30" ItemSize="100,100" FontSize="24" Grid.Column="0" Grid.Row="0" />
-        <toolkit:PhoneEntry x:Name="EntryFromNumber" HeightRequest="72" FontSize="24" Grid.Row="0" Grid.Column="1" InputScope="Number" FontAttributes="Bold" ></toolkit:PhoneEntry>
         -->
-        <Button x:Name="ButtonSMS" Text="Send"  VerticalOptions="Start" WidthRequest="160" Grid.Row="0" Grid.Column="2" />
+        <Entry x:Name="EntryFromPrefix" HeightRequest="72" Grid.Row="0" Grid.Column="0" Keyboard="Numeric"></Entry>
+        <Entry x:Name="EntryFromNumber" HeightRequest="72" Grid.Row="0" Grid.Column="1" Keyboard="Telephone"></Entry>
+        <Button x:Name="ButtonSMS" Text="Send"  VerticalOptions="Start" WidthRequest="160" Grid.Row="0" Grid.Column="2" Clicked="ButtonSMS_OnClicked" />
         <Label x:Name="DescriptionSMS"  Text="Enter your MTS number above.&#x0a;Click &quot;Send&quot; to receive an SMS with a password authorizing you to send 10 SMS free daily.&#x0a;Note: Sending a free SMS is only possible to an MTS mobile network number." Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></Label>
       </Grid>
     </ContentPage>
@@ -39,7 +40,7 @@
         <!--<Label Text="Login" Grid.Row="0"/>-->
         <Entry x:Name="EntryPassword" Grid.Row="0" Grid.Column="1" />
         <Button x:Name="ButtonBack" Text="&lt; Back" HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" />
-        <Button x:Name="ButtonLogin" Text="Send &gt;" HorizontalOptions="End" VerticalOptions="Start" Grid.Row="0" Grid.Column="2"/>
+        <Button x:Name="ButtonLogin" Text="Send &gt;" HorizontalOptions="End" VerticalOptions="Start" Grid.Row="0" Grid.Column="2" Clicked="ButtonLogin_OnClicked"/>
         <Label x:Name="DescriptionLogin" LineBreakMode="WordWrap" Text="Enter your SMS received password.&#x0a;Click &quot;Send&quot; to login and proceed with sending 10 free daily authorized SMS.&#x0a;Note: Make sure your SMS password is recently received or reinitiate SMS password send." Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"></Label>
       </Grid>
     </ContentPage>
@@ -58,9 +59,10 @@
         <!--
         <Label Text="Send" Grid.Row="0"/>
         <toolkitPrimitives:LoopingSelector x:Name="SelectorToPrefix" ItemPadding="2,30,3,30" ItemSize="100,100" FontSize="24" Grid.Column="0" Grid.Row="0" />
-        <toolkit:PhoneEntry x:Name="EntryToNumber" HeightRequest="72" FontSize="24" Grid.Row="0" Grid.Column="1" InputScope="Number" FontAttributes="Bold" ></toolkit:PhoneEntry>
         -->
-        <Button x:Name="ButtonSend" Text="Send"  VerticalOptions="Start" WidthRequest="160" Grid.Row="0" Grid.Column="2" />
+        <Entry x:Name="EntryToPrefix" Grid.Column="0" Grid.Row="0" Keyboard="Numeric"/>
+        <Entry x:Name="EntryToNumber" HeightRequest="72" Grid.Row="0" Grid.Column="1" Keyboard="Telephone"></Entry>
+        <Button x:Name="ButtonSend" Text="Send"  VerticalOptions="Start" WidthRequest="160" Grid.Row="0" Grid.Column="2" Clicked="ButtonSend_OnClicked" />
         <Entry x:Name="EntryMessage" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ></Entry>
         <Label x:Name="DescriptionSend" LineBreakMode="WordWrap" Text="Enter your SMS content above.&#x0a;Click &quot;Send&quot; to proceed with your free SMS.&#x0a;Note: Make sure you enter an MTS mobile network phone number." Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"></Label>
       </Grid>
