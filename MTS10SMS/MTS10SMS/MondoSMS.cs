@@ -99,6 +99,9 @@ namespace MTS10SMS
             httpClientHandler.AllowAutoRedirect = false;
             var httpClient = new HttpClient(httpClientHandler);
 
+            var notificator = DependencyService.Get<IToastNotificator>();
+            bool tapped;
+
             var postData = new Dictionary<string, string>
             {
                 { "pozivni", prefix },
@@ -137,15 +140,41 @@ namespace MTS10SMS
                 httpClient.DefaultRequestHeaders.Add("Cookie", session);
                 
                 var response2 = await httpClient2.PostAsync("http://mondo.rs/sms/password.php", urlEncodedContent2);
+                //{StatusCode: 302, ReasonPhrase: 'Moved Temporarily', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:{Server: nginx/1.4.4Date: Fri, 13 Nov 2015 17:35:11 GMTSet-Cookie: wssid=VtwTualqA7Py; expires=Fri, 13-Nov-2015 17:36:36 GMTLocation: poruka.phpX-Cache: MISS from wccp-proxy.arm.uns.ac.rsX-Cache-Lookup: MISS from wccp-proxy.arm.uns.ac.rs:8080Via: 1.1 proxy.uns.ac.rs (squid/3.3.13), 1.1 wccp-proxy.arm.uns.ac.rs (squid/3.3.13)Connection: closeContent-Type: text/html; charset=UTF-8Content-Length: 5417}}
+                /*
+                FATAL EXCEPTION: main
+11-13 18:08:37.981 E/AndroidRuntime( 2143): java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:760)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at dalvik.system.NativeStart.main(Native Method)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): Caused by: java.lang.reflect.InvocationTargetException
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at java.lang.reflect.Method.invokeNative(Native Method)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at java.lang.reflect.Method.invoke(Method.java:511)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:993)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	... 2 more
+11-13 18:08:37.981 E/AndroidRuntime( 2143): Caused by: md52ce486a14f4bcd95899665e9d932190b.JavaProxyThrowable: System.Net.Http.HttpRequestException: 411 (Length Required)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw () [0x0000b] in /Users/builder/data/lanes/2185/53fce373/source/mono/mcs/class/corlib/System.Runtime.ExceptionServices/ExceptionDispatchInfo.cs:61
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at System.Runtime.CompilerServices.AsyncMethodBuilderCore.<ThrowAsync>m__0 (object) [0x00000] in /Users/builder/data/lanes/2185/53fce373/source/mono/external/referencesource/mscorlib/system/runtime/compilerservices/AsyncMethodBuilder.cs:1006
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at Android.App.SyncContext/<Post>c__AnonStorey0.<>m__0 () [0x00000] in /Users/builder/data/lanes/2185/53fce373/source/monodroid/src/Mono.Android/src/Android.App/SyncContext.cs:18
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at Java.Lang.Thread/RunnableImplementor.Run () [0x0000b] in /Users/builder/data/lanes/2185/53fce373/source/monodroid/src/Mono.Android/src/Java.Lang/Thread.cs:36
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at Java.Lang.IRunnableInvoker.n_Run (intptr,intptr) [0x00009] in /Users/builder/data/lanes/2185/53fce373/source/monodroid/src/Mono.Android/platforms/android-23/src/generated/Java.Lang.IRunnable.cs:71
+11-13 18:08:37.981 E/AndroidRuntime( 2143): at (wrapper dynamic-method) object.22eeb877-0be7-40fd-b1d0-47ed6a14d1ad (intptr,intptr) <IL 0x00011, 0x0003b>
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at mono.java.lang.RunnableImplementor.n_run(Native Method)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at mono.java.lang.RunnableImplementor.run(RunnableImplementor.java:29)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at android.os.Handler.handleCallback(Handler.java:605)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at android.os.Looper.loop(Looper.java:137)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	at android.app.ActivityThread.main(ActivityThread.java:4517)
+11-13 18:08:37.981 E/AndroidRuntime( 2143): 	... 5 more
 
-                response2.EnsureSuccessStatusCode();
+                */
+                //response2.EnsureSuccessStatusCode();
 
-                var notificator = DependencyService.Get<IToastNotificator>();
-                bool tapped = await notificator.Notify(ToastNotificationType.Success,
+                tapped = await notificator.Notify(ToastNotificationType.Success,
                     "OK", "Login code sent, awaiting response, checking...", TimeSpan.FromSeconds(1));
 
-                Stream responseStream = await response2.Content.ReadAsStreamAsync();
-                using (StreamReader responseReader = new StreamReader(responseStream))
+                Stream responseStream2 = await response2.Content.ReadAsStreamAsync();
+                using (StreamReader responseReader = new StreamReader(responseStream2))
                 {
                     String sResponse = responseReader.ReadToEnd();
                     HtmlDocument doc = new HtmlDocument();
@@ -154,6 +183,22 @@ namespace MTS10SMS
                         UserDialogs.Instance.Alert("Server response: " + doc.DocumentNode.Descendants("div").Where(div => div.GetAttributeValue("class", string.Empty).Contains("notice")).Select(div => div.InnerText).First());
 
                 }
+
+                return response2;
+
+            }
+            
+            tapped = await notificator.Notify(ToastNotificationType.Success,
+                "OK", "Login code sent, awaiting response, checking...", TimeSpan.FromSeconds(1));
+
+            Stream responseStream = await response.Content.ReadAsStreamAsync();
+            using (StreamReader responseReader = new StreamReader(responseStream))
+            {
+                String sResponse = responseReader.ReadToEnd();
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(sResponse);
+                if (doc.DocumentNode.Descendants("div").Where(div => div.GetAttributeValue("class", string.Empty).Contains("notice")).Select(div => div.InnerText).Any())
+                    UserDialogs.Instance.Alert("Server response: " + doc.DocumentNode.Descendants("div").Where(div => div.GetAttributeValue("class", string.Empty).Contains("notice")).Select(div => div.InnerText).First());
 
             }
 
