@@ -65,6 +65,7 @@ namespace MTS10SMS.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::ModernHttpClient.Resource.String.library_name = global::MTS10SMS.Droid.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::MTS10SMS.Droid.Resource.String.library_name;
 			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.error = global::MTS10SMS.Droid.Resource.Drawable.error;
 			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.info = global::MTS10SMS.Droid.Resource.Drawable.info;

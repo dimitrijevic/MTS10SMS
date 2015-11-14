@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Acr.UserDialogs;
 using HtmlAgilityPack;
+using ModernHttpClient;
 using Toasts.Forms.Plugin.Abstractions;
 using Xamarin.Forms;
 
@@ -35,7 +36,12 @@ namespace MTS10SMS
         /// <returns></returns>
         public static async Task<HttpResponseMessage> SMSPostAsync(string prefix, string number)
         {
-            var httpClient = new HttpClient();
+            var httpClient = new HttpClient(new NativeMessageHandler { AllowAutoRedirect = false });
+
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html, application/xhtml+xml, */*");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("DNT", "1");
 
             var postData = new Dictionary<string, string>
             {
@@ -95,9 +101,11 @@ namespace MTS10SMS
         /// TODO: CHECK PROBLEM WITH ONE TIME LOGIN, RESUMING FROM PREVIOUSLY RECIVED SMS-CODE, BUG?!?
         public static async Task<HttpResponseMessage> LoginPostAsync(string pass, string prefix, string number)
         {
+            
+
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             httpClientHandler.AllowAutoRedirect = false;
-            var httpClient = new HttpClient(httpClientHandler);
+            var httpClient = new HttpClient(httpClientHandler);//new NativeMessageHandler { AllowAutoRedirect = false });
 
             var notificator = DependencyService.Get<IToastNotificator>();
             bool tapped;
@@ -127,17 +135,17 @@ namespace MTS10SMS
 
             if (response.Headers.TryGetValues("Set-Cookie", out values))
             {
-                HttpClientHandler httpClientHandler2 = new HttpClientHandler();
-                httpClientHandler2.AllowAutoRedirect = true;
-                var httpClient2 = new HttpClient(httpClientHandler2);
+                //HttpClientHandler httpClientHandler2 = new HttpClientHandler();
+                //httpClientHandler2.AllowAutoRedirect = true;
+                var httpClient2 = new HttpClient(new NativeMessageHandler { AllowAutoRedirect = true });
                 session = values.First();
                 var urlEncodedContent2 = new FormUrlEncodedContent(postData);
-                httpClient.DefaultRequestHeaders.Referrer = new Uri("http://mondo.rs/sms/password.php");
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html, application/xhtml+xml, */*");
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)");
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("DNT", "1");
-                httpClient.DefaultRequestHeaders.Add("Cookie", session);
+                httpClient2.DefaultRequestHeaders.Referrer = new Uri("http://mondo.rs/sms/password.php");
+                httpClient2.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html, application/xhtml+xml, */*");
+                httpClient2.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
+                httpClient2.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)");
+                httpClient2.DefaultRequestHeaders.TryAddWithoutValidation("DNT", "1");
+                httpClient2.DefaultRequestHeaders.Add("Cookie", session);
                 
                 var response2 = await httpClient2.PostAsync("http://mondo.rs/sms/password.php", urlEncodedContent2);
                 //{StatusCode: 302, ReasonPhrase: 'Moved Temporarily', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:{Server: nginx/1.4.4Date: Fri, 13 Nov 2015 17:35:11 GMTSet-Cookie: wssid=VtwTualqA7Py; expires=Fri, 13-Nov-2015 17:36:36 GMTLocation: poruka.phpX-Cache: MISS from wccp-proxy.arm.uns.ac.rsX-Cache-Lookup: MISS from wccp-proxy.arm.uns.ac.rs:8080Via: 1.1 proxy.uns.ac.rs (squid/3.3.13), 1.1 wccp-proxy.arm.uns.ac.rs (squid/3.3.13)Connection: closeContent-Type: text/html; charset=UTF-8Content-Length: 5417}}
@@ -227,7 +235,7 @@ namespace MTS10SMS
         /// <returns></returns>
         public static async Task<HttpResponseMessage> SendPostAsync(string sms, string prefix, string tonumber)
         {
-            var httpClient = new HttpClient();
+            var httpClient = new HttpClient(new NativeMessageHandler());
 
             var postData = new Dictionary<string, string>
             {
