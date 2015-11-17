@@ -30,7 +30,7 @@ namespace MTS10SMS
             */
         }
 
-        protected async override void OnStart()
+        protected override void OnStart()
         {
             // Handle when your app starts
         }

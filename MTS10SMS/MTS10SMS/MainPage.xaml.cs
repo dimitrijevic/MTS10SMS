@@ -17,19 +17,19 @@ namespace MTS10SMS
 
         private async void ButtonSMS_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.SMSPostAsync(EntryFromPrefix.Text, EntryFromNumber.Text);
+            await MondoSMS.SMSPostAsync(PickerFromPrefix.SelectedIndex.ToString(), EntryFromNumber.Text);
             CurrentPage = Children[1];
         }
 
         private async void ButtonLogin_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.LoginPostAsync(EntryPassword.Text, EntryFromPrefix.Text, EntryFromNumber.Text);
+            await MondoSMS.LoginPostAsync(EntryPassword.Text, PickerFromPrefix.SelectedIndex.ToString(), EntryFromNumber.Text);
             CurrentPage = Children[2];
         }
 
         private async void ButtonSend_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.SendPostAsync(EntryMessage.Text, EntryToPrefix.Text, EntryToNumber.Text);
+            await MondoSMS.SendPostAsync(EntryMessage.Text, PickerToPrefix.SelectedIndex.ToString(), EntryToNumber.Text);
         }
     }
 }
