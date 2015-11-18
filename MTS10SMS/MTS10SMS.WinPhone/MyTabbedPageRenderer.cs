@@ -13,7 +13,7 @@ namespace MTS10SMS.WinPhone
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e); 
-            this.Style = MTS10SMS.App.Current.Resources["PivotStyle"] as Style;
+            this.Style = App.Current.Resources["PivotStyle1"] as System.Windows.Style;
         }
     }
 }
