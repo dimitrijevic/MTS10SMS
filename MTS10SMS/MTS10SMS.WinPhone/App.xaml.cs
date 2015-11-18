@@ -2,14 +2,21 @@
 using System.Diagnostics;
 using System.Resources;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Markup;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MTS10SMS.WinPhone.Resources;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.WinPhone;
+using Application = System.Windows.Application;
+using NavigationEventArgs = System.Windows.Navigation.NavigationEventArgs;
 
 namespace MTS10SMS.WinPhone
 {
+
     public partial class App : Application
     {
         /// <summary>

@@ -7,6 +7,9 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        <Style x:Key="PivotStyle" TargetType="phone:Pivot">
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
         <local:LocalizedStrings xmlns:local="clr-namespace:MTS10SMS.WinPhone" x:Key="LocalizedStrings"/>
     </Application.Resources>
 
