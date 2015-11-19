@@ -13,6 +13,10 @@ namespace MTS10SMS
         public MainPage()
         {
             InitializeComponent();
+            ButtonBack.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+            ButtonLogin.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+            ButtonSMS.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+            ButtonSend.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label));
         }
 
         private async void ButtonSMS_OnClicked(object sender, EventArgs e)
@@ -30,6 +34,11 @@ namespace MTS10SMS
         private async void ButtonSend_OnClicked(object sender, EventArgs e)
         {
             await MondoSMS.SendPostAsync(EntryMessage.Text, PickerToPrefix.SelectedIndex.ToString(), EntryToNumber.Text);
+        }
+
+        private void ButtonBack_OnClicked(object sender, EventArgs e)
+        {
+            CurrentPage = Children[0];
         }
     }
 }

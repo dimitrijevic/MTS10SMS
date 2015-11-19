@@ -14,7 +14,7 @@ namespace MTS10SMS.iOS
 
             TabBar.TintColor = UIColor.White;
             TabBar.BarTintColor = UIColor.Black;
-            TabBar.BackgroundColor = UIColor.Gray;
+            TabBar.BackgroundColor = UIColor.FromRGBA(237, 22, 57, 255);
         }
     }
 }
