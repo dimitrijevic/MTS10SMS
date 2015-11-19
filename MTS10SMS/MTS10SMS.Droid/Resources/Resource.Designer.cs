@@ -153,10 +153,13 @@ namespace MTS10SMS.Droid
 			public const int roundedbgdark = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int success = 2130837511;
+			public const int splash = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int warning = 2130837512;
+			public const int success = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int warning = 2130837513;
 			
 			static Drawable()
 			{
@@ -171,26 +174,26 @@ namespace MTS10SMS.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int desc = 2131034114;
+			// aapt resource value: 0x7f060002
+			public const int desc = 2131099650;
 			
-			// aapt resource value: 0x7f050000
-			public const int image = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int image = 2131099648;
 			
-			// aapt resource value: 0x7f050005
-			public const int loadingImage = 2131034117;
+			// aapt resource value: 0x7f060005
+			public const int loadingImage = 2131099653;
 			
-			// aapt resource value: 0x7f050003
-			public const int loadingProgressBar = 2131034115;
+			// aapt resource value: 0x7f060003
+			public const int loadingProgressBar = 2131099651;
 			
-			// aapt resource value: 0x7f050006
-			public const int loadingProgressWheel = 2131034118;
+			// aapt resource value: 0x7f060006
+			public const int loadingProgressWheel = 2131099654;
 			
-			// aapt resource value: 0x7f050004
-			public const int textViewStatus = 2131034116;
+			// aapt resource value: 0x7f060004
+			public const int textViewStatus = 2131099652;
 			
-			// aapt resource value: 0x7f050001
-			public const int title = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int title = 2131099649;
 			
 			static Id()
 			{
@@ -245,6 +248,22 @@ namespace MTS10SMS.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Theme_Splash = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
