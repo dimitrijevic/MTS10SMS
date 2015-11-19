@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MTS10SMS.AboutPage"
+             Title="MTS10SMS"
+             BackgroundColor="White">
+  <StackLayout>
+    <!--
+    <Label Text="{Binding MainText}" FontSize="Large" FontAttributes="Bold" TextColor="#FFED1639" VerticalOptions="Start" HorizontalOptions="Start" />
+    -->
+    
+    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+      <Label.FormattedText>
+        <FormattedString>
+          <FormattedString.Spans>
+            <Span Text="mts10sms" FontAttributes="Bold" FontSize="Large" ForegroundColor="#FFED1639">
+              <Span.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <OnPlatform.WinPhone>\Assets\NexaBook.ttf#Nexa Book</OnPlatform.WinPhone>
+                  <OnPlatform.Android>null</OnPlatform.Android>
+                  <OnPlatform.iOS>null</OnPlatform.iOS>
+                </OnPlatform>
+              </Span.FontFamily>
+            </Span>
+          </FormattedString.Spans>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+      <Label.FormattedText>
+        <FormattedString>
+          <FormattedString.Spans>
+            <Span Text="This app lets MTS mobile phone network users send daily 10 free SMS via internet. Extremely useful for reducing roaming. For bug reports please contact: " ForegroundColor="#FFED1639" FontSize="Medium">
+              <Span.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <OnPlatform.WinPhone>\Assets\NexaBook.ttf#Nexa Book</OnPlatform.WinPhone>
+                  <OnPlatform.Android>null</OnPlatform.Android>
+                  <OnPlatform.iOS>null</OnPlatform.iOS>
+                </OnPlatform>
+              </Span.FontFamily>
+            </Span>
+          </FormattedString.Spans>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+      <Label.FormattedText>
+        <FormattedString>
+          <FormattedString.Spans>
+            <Span Text="mts10sms@hotmail.com" ForegroundColor="#FFED1639" FontAttributes="Italic" FontSize="Medium" />
+          </FormattedString.Spans>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+    <Label TextColor="#FFED1639" FontSize="Small" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+      <Label.FormattedText>
+        <FormattedString>
+          <FormattedString.Spans>
+            <Span Text="Note: SMS can be sent to and by MTS numbers."/>
+          </FormattedString.Spans>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+  </StackLayout>
+</ContentPage>

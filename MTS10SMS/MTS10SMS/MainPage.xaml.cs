@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Share.Plugin;
 using Xamarin.Forms;
 
 namespace MTS10SMS
@@ -39,6 +39,16 @@ namespace MTS10SMS
         private void ButtonBack_OnClicked(object sender, EventArgs e)
         {
             CurrentPage = Children[0];
+        }
+
+        private void MenuItem_OnClickedAboutApp(object sender, EventArgs e)
+        {
+            this.Navigation.PushModalAsync(new AboutPage());
+        }
+
+        private void MenuItem_OnClickedShareApp(object sender, EventArgs e)
+        {
+            CrossShare.Current.Share("10 free SMS! Use mts10sms. StoreURL?", "Share");
         }
     }
 }

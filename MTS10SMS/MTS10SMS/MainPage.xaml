@@ -18,6 +18,7 @@
   </TabbedPage.Resources>
   
   <TabbedPage.Children>
+
     <ContentPage Title="Id" Style="{DynamicResource PageStyle}">
       <!--
       <Label Text="SMS" Grid.Row="0" />
@@ -85,9 +86,14 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
       </Grid>
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About app..." Clicked="MenuItem_OnClickedAboutApp"  Order="Secondary" Priority="0" />
+        <ToolbarItem Text="Share app..." Clicked="MenuItem_OnClickedShareApp" Order="Secondary" Priority="1" />
+      </ContentPage.ToolbarItems>
     </ContentPage>
-    
+
     <!--<Label Text="Login" Grid.Row="0"/>-->
+
     <ContentPage Title="Login" Style="{DynamicResource PageStyle}">
       <Grid x:Name="LoginTitlePanel" Padding="12,27,12,18">
         <Grid.RowDefinitions>
@@ -138,8 +144,12 @@
           </Label.FontFamily>
         </Label>
       </Grid>
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About app..." Clicked="MenuItem_OnClickedAboutApp"  Order="Secondary" Priority="0" />
+        <ToolbarItem Text="Share app..." Clicked="MenuItem_OnClickedShareApp" Order="Secondary" Priority="1" />
+      </ContentPage.ToolbarItems>
     </ContentPage>
-    
+
     <!--
     <Label Text="Send" Grid.Row="0"/>
     <toolkitPrimitives:LoopingSelector x:Name="SelectorToPrefix" ItemPadding="2,30,3,30" ItemSize="100,100" FontSize="24" Grid.Column="0" Grid.Row="0" />
@@ -208,6 +218,10 @@
           </Label.FontFamily>
         </Label>
       </Grid>
+      <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About app..." Clicked="MenuItem_OnClickedAboutApp"  Order="Secondary" Priority="0" />
+        <ToolbarItem Text="Share app..." Clicked="MenuItem_OnClickedShareApp" Order="Secondary" Priority="1" />
+      </ContentPage.ToolbarItems>
     </ContentPage>
   </TabbedPage.Children>
 </TabbedPage>
