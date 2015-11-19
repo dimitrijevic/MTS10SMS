@@ -46,7 +46,15 @@
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="130"/>
+          <ColumnDefinition>
+            <ColumnDefinition.Width>
+            <OnPlatform x:TypeArguments="GridLength">
+              <OnPlatform.WinPhone>130</OnPlatform.WinPhone>
+              <OnPlatform.Android>85</OnPlatform.Android>
+              <OnPlatform.iOS>100</OnPlatform.iOS>
+            </OnPlatform>
+            </ColumnDefinition.Width>
+          </ColumnDefinition>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -85,7 +93,15 @@
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="130"/>
+          <ColumnDefinition>
+            <ColumnDefinition.Width>
+            <OnPlatform x:TypeArguments="GridLength">
+              <OnPlatform.WinPhone>130</OnPlatform.WinPhone>
+              <OnPlatform.Android>85</OnPlatform.Android>
+              <OnPlatform.iOS>100</OnPlatform.iOS>
+            </OnPlatform>
+            </ColumnDefinition.Width>
+          </ColumnDefinition>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>

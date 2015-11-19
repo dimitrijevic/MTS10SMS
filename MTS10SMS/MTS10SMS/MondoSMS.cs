@@ -50,8 +50,8 @@ namespace MTS10SMS
                 { "passs", "" },
                 { "pozivni2", prefix },
                 { "passnum", number },
-                { "Send2.x", "35"},
-                { "Send2.y", "17" }
+                { "Send2.x", "5"},
+                { "Send2.y", "7" }
             };
             var urlEncodedContent = new FormUrlEncodedContent(postData);
 
@@ -123,8 +123,8 @@ namespace MTS10SMS
                 { "mobnum", number },
                 { "passs", pass },
                 { "pozivni2", prefix },
-                { "Send3.x", "48" },
-                { "Send3.y", "12"}
+                { "Send3.x", "4" },
+                { "Send3.y", "2"}
             };
             var urlEncodedContent = new FormUrlEncodedContent(postData);
 
@@ -220,8 +220,8 @@ namespace MTS10SMS
                 { "dstnum", tonumber },
                 { "textmsg", sms },
                 { "pozivni3", prefix },
-                { "Send3.x", "54"},
-                { "Send3.y", "12" }
+                { "Send3.x", "5"},
+                { "Send3.y", "1" }
             };
             var urlEncodedContent = new FormUrlEncodedContent(postData);
 
