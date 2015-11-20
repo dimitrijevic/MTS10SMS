@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
+using Connectivity.Plugin;
 using Share.Plugin;
 using Xamarin.Forms;
 
@@ -21,19 +23,44 @@ namespace MTS10SMS
 
         private async void ButtonSMS_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.SMSPostAsync(PickerFromPrefix.SelectedIndex.ToString(), EntryFromNumber.Text);
-            CurrentPage = Children[1];
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await MondoSMS.SMSPostAsync(PickerFromPrefix.SelectedIndex.ToString(), EntryFromNumber.Text);
+                CurrentPage = Children[1];
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("Network unavailable", "Alert!");
+            }
         }
 
         private async void ButtonLogin_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.LoginPostAsync(EntryPassword.Text, PickerFromPrefix.SelectedIndex.ToString(), EntryFromNumber.Text);
-            CurrentPage = Children[2];
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await
+                    MondoSMS.LoginPostAsync(EntryPassword.Text, PickerFromPrefix.SelectedIndex.ToString(),
+                        EntryFromNumber.Text);
+                CurrentPage = Children[2];
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("Network unavailable", "Alert!");
+            }
         }
 
         private async void ButtonSend_OnClicked(object sender, EventArgs e)
         {
-            await MondoSMS.SendPostAsync(EntryMessage.Text, PickerToPrefix.SelectedIndex.ToString(), EntryToNumber.Text);
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await
+                    MondoSMS.SendPostAsync(EntryMessage.Text, PickerToPrefix.SelectedIndex.ToString(),
+                        EntryToNumber.Text);
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("Network unavailable", "Alert!");
+            }
         }
 
         private void ButtonBack_OnClicked(object sender, EventArgs e)

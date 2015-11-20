@@ -47,7 +47,7 @@
       <Label.FormattedText>
         <FormattedString>
           <FormattedString.Spans>
-            <Span Text="mts10sms@hotmail.com" ForegroundColor="#FFED1639" FontAttributes="Italic" FontSize="Medium" />
+            <Span Text="digitaldreamz@hotmail.com" ForegroundColor="#FFED1639" FontAttributes="Italic" FontSize="Medium" />
           </FormattedString.Spans>
         </FormattedString>
       </Label.FormattedText>
