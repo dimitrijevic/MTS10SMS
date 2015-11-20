@@ -70,12 +70,12 @@ namespace MTS10SMS
 
         private void MenuItem_OnClickedAboutApp(object sender, EventArgs e)
         {
-            this.Navigation.PushModalAsync(new AboutPage());
+            this.ParentView.Navigation.PushAsync(new AboutPage());
         }
 
         private void MenuItem_OnClickedShareApp(object sender, EventArgs e)
         {
-            CrossShare.Current.Share("10 free SMS! Use mts10sms. StoreURL?", "Share");
+            CrossShare.Current.Share("FREE SMS DAILY!? Use mts10sms! http://smarturl.it/mts10sms ;)", "Share");
         }
     }
 }

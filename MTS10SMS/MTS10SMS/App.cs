@@ -12,7 +12,10 @@ namespace MTS10SMS
         public App()
         {
             // The root page of your application
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+            MainPage.Title = "mts10sms";
+            //MainPage.ToolbarItems.Add(new ToolbarItem("About app...", "", () => { }, ToolbarItemOrder.Primary, 0));
+
             /*
             new ContentPage
             {
