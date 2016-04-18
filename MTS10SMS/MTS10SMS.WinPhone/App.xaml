@@ -7,6 +7,10 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        <Style x:Key="PivotStyle1" TargetType="phone:Pivot">
+            <Setter Property="Foreground" Value="#FFED1639"></Setter>
+            <!--<Setter Property="FontFamily" Value="\Assets\NexaBook.ttf#Nexa Book"></Setter>-->
+        </Style>
         <local:LocalizedStrings xmlns:local="clr-namespace:MTS10SMS.WinPhone" x:Key="LocalizedStrings"/>
     </Application.Resources>
 

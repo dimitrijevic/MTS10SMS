@@ -26,8 +26,6 @@ namespace MTS10SMS.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Acr.Support.Android.Resource.String.ApplicationName = global::MTS10SMS.Droid.Resource.String.ApplicationName;
-			global::Acr.Support.Android.Resource.String.Hello = global::MTS10SMS.Droid.Resource.String.Hello;
 			global::AndroidHUD.Resource.Attribute.ahBarColor = global::MTS10SMS.Droid.Resource.Attribute.ahBarColor;
 			global::AndroidHUD.Resource.Attribute.ahBarLength = global::MTS10SMS.Droid.Resource.Attribute.ahBarLength;
 			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::MTS10SMS.Droid.Resource.Attribute.ahBarWidth;
@@ -65,17 +63,9 @@ namespace MTS10SMS.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::MTS10SMS.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::ModernHttpClient.Resource.String.library_name = global::MTS10SMS.Droid.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::MTS10SMS.Droid.Resource.String.library_name;
-			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.error = global::MTS10SMS.Droid.Resource.Drawable.error;
-			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.info = global::MTS10SMS.Droid.Resource.Drawable.info;
-			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.success = global::MTS10SMS.Droid.Resource.Drawable.success;
-			global::Toasts.Forms.Plugin.Droid.Resource.Drawable.warning = global::MTS10SMS.Droid.Resource.Drawable.warning;
-			global::Toasts.Forms.Plugin.Droid.Resource.Id.desc = global::MTS10SMS.Droid.Resource.Id.desc;
-			global::Toasts.Forms.Plugin.Droid.Resource.Id.image = global::MTS10SMS.Droid.Resource.Id.image;
-			global::Toasts.Forms.Plugin.Droid.Resource.Id.title = global::MTS10SMS.Droid.Resource.Id.title;
-			global::Toasts.Forms.Plugin.Droid.Resource.Layout.crouton = global::MTS10SMS.Droid.Resource.Layout.crouton;
-			global::Toasts.Forms.Plugin.Droid.Resource.String.ApplicationName = global::MTS10SMS.Droid.Resource.String.ApplicationName;
-			global::Toasts.Forms.Plugin.Droid.Resource.String.Hello = global::MTS10SMS.Droid.Resource.String.Hello;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MTS10SMS.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Attribute
@@ -131,31 +121,22 @@ namespace MTS10SMS.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int error = 2130837504;
+			public const int ic_errorstatus = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int ic_errorstatus = 2130837505;
+			public const int ic_successstatus = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_successstatus = 2130837506;
+			public const int icon = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int icon = 2130837507;
+			public const int roundedbg = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int info = 2130837508;
+			public const int roundedbgdark = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int roundedbg = 2130837509;
-			
-			// aapt resource value: 0x7f020006
-			public const int roundedbgdark = 2130837510;
-			
-			// aapt resource value: 0x7f020007
-			public const int success = 2130837511;
-			
-			// aapt resource value: 0x7f020008
-			public const int warning = 2130837512;
+			public const int splash = 2130837509;
 			
 			static Drawable()
 			{
@@ -170,26 +151,17 @@ namespace MTS10SMS.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int desc = 2131034114;
+			// aapt resource value: 0x7f060002
+			public const int loadingImage = 2131099650;
 			
-			// aapt resource value: 0x7f050000
-			public const int image = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int loadingProgressBar = 2131099648;
 			
-			// aapt resource value: 0x7f050005
-			public const int loadingImage = 2131034117;
+			// aapt resource value: 0x7f060003
+			public const int loadingProgressWheel = 2131099651;
 			
-			// aapt resource value: 0x7f050003
-			public const int loadingProgressBar = 2131034115;
-			
-			// aapt resource value: 0x7f050006
-			public const int loadingProgressWheel = 2131034118;
-			
-			// aapt resource value: 0x7f050004
-			public const int textViewStatus = 2131034116;
-			
-			// aapt resource value: 0x7f050001
-			public const int title = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int textViewStatus = 2131099649;
 			
 			static Id()
 			{
@@ -205,16 +177,13 @@ namespace MTS10SMS.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int crouton = 2130903040;
+			public const int loading = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int loading = 2130903041;
+			public const int loadingimage = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int loadingimage = 2130903042;
-			
-			// aapt resource value: 0x7f030003
-			public const int loadingprogress = 2130903043;
+			public const int loadingprogress = 2130903042;
 			
 			static Layout()
 			{
@@ -229,14 +198,8 @@ namespace MTS10SMS.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
-			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
-			
-			// aapt resource value: 0x7f040002
-			public const int library_name = 2130968578;
+			public const int library_name = 2130968576;
 			
 			static String()
 			{
@@ -244,6 +207,22 @@ namespace MTS10SMS.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int Theme_Splash = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

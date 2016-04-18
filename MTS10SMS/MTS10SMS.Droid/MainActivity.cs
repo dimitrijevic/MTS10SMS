@@ -6,18 +6,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using Toasts.Forms.Plugin.Droid;
+//using Toasts.Forms.Plugin.Droid;
 
 namespace MTS10SMS.Droid
 {
-    [Activity(Label = "MTS10SMS", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Icon = "@drawable/icon", Label = "mts10sms", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             UserDialogs.Init(this);
-            ToastNotificatorImplementation.Init();
+            //ToastNotificatorImplementation.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

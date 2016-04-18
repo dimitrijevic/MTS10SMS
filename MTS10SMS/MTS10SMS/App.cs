@@ -12,7 +12,11 @@ namespace MTS10SMS
         public App()
         {
             // The root page of your application
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+            MainPage.Title = "mts10sms";
+            MainPage.BackgroundColor = Color.White;
+            //MainPage.ToolbarItems.Add(new ToolbarItem("About app...", "", () => { }, ToolbarItemOrder.Primary, 0));
+
             /*
             new ContentPage
             {
@@ -30,7 +34,7 @@ namespace MTS10SMS
             */
         }
 
-        protected async override void OnStart()
+        protected override void OnStart()
         {
             // Handle when your app starts
         }

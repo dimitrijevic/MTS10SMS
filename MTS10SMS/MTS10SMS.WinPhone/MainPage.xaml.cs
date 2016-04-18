@@ -7,7 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Toasts.Forms.Plugin.WindowsPhone;
+using Plugin.Share;
+//using Share.Plugin;
+//using Toasts.Forms.Plugin.WindowsPhone;
 
 namespace MTS10SMS.WinPhone
 {
@@ -18,8 +20,9 @@ namespace MTS10SMS.WinPhone
             InitializeComponent();
             SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
             global::Xamarin.Forms.Forms.Init();
-            ToastNotificatorImplementation.Init();
+            //ToastNotificatorImplementation.Init();
             LoadApplication(new MTS10SMS.App());
+            ShareImplementation.Init();
         }
     }
 }

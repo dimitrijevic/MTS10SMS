@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using Toasts.Forms.Plugin.iOS;
+//using Plugin.Toast;
 using UIKit;
 
 namespace MTS10SMS.iOS
@@ -23,7 +23,7 @@ namespace MTS10SMS.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            ToastNotificatorImplementation.Init();
+            //ToastNotificatorImplementation.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
